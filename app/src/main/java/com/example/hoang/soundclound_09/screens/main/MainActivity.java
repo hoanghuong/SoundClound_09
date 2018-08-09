@@ -4,19 +4,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.hoang.soundclound_09.R;
-import com.example.hoang.soundclound_09.data.OnGetDataCompletedListener;
-import com.example.hoang.soundclound_09.data.Track;
-import com.example.hoang.soundclound_09.data.remote.Config;
-import com.example.hoang.soundclound_09.data.remote.TrackByGenreTask;
 import com.example.hoang.soundclound_09.mainhome.HomeAdapter;
 import com.example.hoang.soundclound_09.mainhome.HomeFragment;
 import com.example.hoang.soundclound_09.more.MoreFragment;
 import com.example.hoang.soundclound_09.personal.MyMusicFragment;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

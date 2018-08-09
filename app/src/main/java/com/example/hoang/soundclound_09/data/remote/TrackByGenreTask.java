@@ -1,10 +1,11 @@
 package com.example.hoang.soundclound_09.data.remote;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.hoang.soundclound_09.data.JSONUtils;
-import com.example.hoang.soundclound_09.data.OnGetDataCompletedListener;
 import com.example.hoang.soundclound_09.data.Track;
+import com.example.hoang.soundclound_09.mainhome.HomeMusicContract;
 
 import org.json.JSONException;
 
@@ -18,10 +19,10 @@ import java.util.ArrayList;
 public class TrackByGenreTask extends AsyncTask<String, Void, ArrayList<Track>> {
 
     private SoundCloudApiConnection mConnection = null;
-    private OnGetDataCompletedListener mDataCompletedListener;
+    private HomeMusicContract.presenter mView;
 
-    public TrackByGenreTask(OnGetDataCompletedListener dataCompletedListener) {
-        this.mDataCompletedListener = dataCompletedListener;
+    public TrackByGenreTask(HomeMusicContract.presenter presenter) {
+        this.mView = presenter;
     }
 
     @Override
@@ -44,7 +45,8 @@ public class TrackByGenreTask extends AsyncTask<String, Void, ArrayList<Track>> 
 
     @Override
     protected void onPostExecute(ArrayList<Track> tracks) {
+        Log.d("track by", tracks.get(0).getGenre());
+        mView.loadListGenerMusic(tracks);
         super.onPostExecute(tracks);
-        mDataCompletedListener.onGetTracksByGenreCompleted(tracks);
     }
 }
